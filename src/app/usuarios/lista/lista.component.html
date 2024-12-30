@@ -1,3 +1,18 @@
+@if (loading) {
+<div class="alert alert-info text-center" role="alert">
+  <h4 class="alert-heading">Cargando...</h4>
+  <p>
+    <i class="fa fa-sync fa-spin fa-2x"></i>
+  </p>
+  <p class="mb-0"></p>
+</div>
+} @else if(error) {
+<div class="alert alert-danger text-center" role="alert">
+  <h4 class="alert-heading">Error</h4>
+  <pre>{{ error | json }}</pre>
+  <p class="mb-0"></p>
+</div>
+} @else {
 <div class="row row-cols-1 row-cols-md-3 g-4">
   @for (user of usuarios(); track user.id) {
   <div class="col">
@@ -14,3 +29,4 @@
   </div>
   }
 </div>
+}
